@@ -20,9 +20,9 @@ const TodoItem: FC<TodoData> = ({ id, title, completed, pinned, datetime }) => {
   
 
   return (
-    <li className={`list-group-item ${completed && "list-group-item-success"}`}>
+    <li className='list-group-item'>
       <div className='d-flex justify-content-between'>
-        <span className={`d-flex align-items-center ${completed && "text-decoration-line-through"}`}>{title}</span>
+        <span className='d-flex align-items-center'>{title}</span>
         <p>
           <label className='font-monospace me-3'>
             {datetime}

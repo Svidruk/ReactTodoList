@@ -1,15 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Console } from "console";
 import { TodoData } from "../interfaces/TodoData";
 
 const getInitialTodo = () => {
-  // getting todo list
-  const localTodoList = window.localStorage.getItem('todoList');
-  // if todo list is not empty
+  const localTodoList = window.localStorage.getItem("todoList");
   if (localTodoList) {
     return JSON.parse(localTodoList);
   }
-  window.localStorage.setItem('todoList', '');
+  window.localStorage.setItem("todoList", "");
   return [];
 };
 
@@ -31,16 +28,16 @@ export const TodoSlice = createSlice({
       };
       state.todoList.push(newTodo);
 
-      const todoList = window.localStorage.getItem('todoList');
+      const todoList = window.localStorage.getItem("todoList");
       if (todoList) {
         const todoListArr = JSON.parse(todoList);
         todoListArr.push({
           ...newTodo,
         });
-        window.localStorage.setItem('todoList', JSON.stringify(todoListArr));
+        window.localStorage.setItem("todoList", JSON.stringify(todoListArr));
       } else {
         window.localStorage.setItem(
-          'todoList',
+          "todoList",
           JSON.stringify([
             {
               ...newTodo,
@@ -51,32 +48,55 @@ export const TodoSlice = createSlice({
     },
 
     toggleComplete: (state, action) => {
-      const index = state.todoList.findIndex((todo: TodoData) => todo.id === action.payload.id);
-      state.todoList[index].completed = action.payload.completed;
+      const todoList = window.localStorage.getItem('todoList');
+      if (todoList) {
+        const todoListArr = JSON.parse(todoList);
+        todoListArr.forEach((todo: TodoData) => {
+          if (todo.id === action.payload.id) {
+            todo.completed = action.payload.completed;
+          }
+        });
+        window.localStorage.setItem('todoList', JSON.stringify(todoListArr));
+        state.todoList = [...todoListArr];
+      }
     },
 
     deleteTodo: (state, action) => {
-      const index = state.todoList.findIndex((todo: TodoData) => todo.id === action.payload.id);
-      const todoList = window.localStorage.getItem('todoList');
+      const index = state.todoList.findIndex(
+        (todo: TodoData) => todo.id === action.payload.id
+      );
+      const todoList = window.localStorage.getItem("todoList");
       if (todoList) {
         const todoListArr = JSON.parse(todoList);
         for (let todo of todoListArr) {
           if (todo.id === action.payload.id) {
-              todoListArr.splice(index, 1)
+            todoListArr.splice(index, 1);
           }
-        } 
-        window.localStorage.setItem('todoList', JSON.stringify(todoListArr));
+        }
+        window.localStorage.setItem("todoList", JSON.stringify(todoListArr));
         state.todoList = todoListArr;
       }
     },
 
     pinTodo: (state, action) => {
-      const index = state.todoList.findIndex((todo: TodoData) => todo.id === action.payload.id);
-      state.todoList[index].pinned = action.payload.pinned;
+      const todoList = window.localStorage.getItem('todoList');
+      if (todoList) {
+        const todoListArr = JSON.parse(todoList);
+        todoListArr.forEach((todo: TodoData) => {
+          if (todo.id === action.payload.id) {
+            todo.pinned = action.payload.pinned;
+          }
+        });
+        window.localStorage.setItem('todoList', JSON.stringify(todoListArr.sort((o1: TodoData) => {
+          return o1.pinned === true ? -1 : 1;
+        })));
+        state.todoList = [todoListArr];
+      }
     },
   },
 });
 
-export const { addTodo, toggleComplete, deleteTodo, pinTodo } = TodoSlice.actions;
+export const { addTodo, toggleComplete, deleteTodo, pinTodo } =
+  TodoSlice.actions;
 
 export default TodoSlice.reducer;

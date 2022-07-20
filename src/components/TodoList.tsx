@@ -4,7 +4,8 @@ import { RootState } from '../redux/store';
 import { TodoData } from "../interfaces/TodoData";
 
 const TodoList = () => {
-  const todos = useSelector((state: RootState) => state.todos.todoList);
+  const todos = useSelector((state: RootState) => state.todos.todoList.filter((todo: TodoData)=>todo.completed === false));
+
   return (
     <ul className='list-group'>
       {todos.map((todo: TodoData) => (
