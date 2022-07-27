@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IpData } from "../interfaces/IpData";
-import { fetchIpData } from "../api/IpApi";
+import { IpData } from "../../interfaces/IpData";
+import { fetchIpData } from "../../api/IpApi";
 
 export const loadIpData = createAsyncThunk("ip/fetchIp", fetchIpData);
 
@@ -27,7 +27,6 @@ export const IpSlice = createSlice({
     ) => {
       state.data.status = action.payload.status;
       state.data = action.payload;
-      console.log(state.data);
     },
     [loadIpData.rejected.toString()]: (state, action) => {
       state.data.status = "unsuccess";

@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 import { FC } from "react";
 import { TodoData } from "../interfaces/TodoData";
-import { toggleComplete } from "../redux/TodoSlice";
+import { toggleComplete } from "../redux/Slices/TodoSlice";
 import { ReactComponent as Minus } from "../assets/icons/Minus.svg";
 
 const CompleteItem: FC<TodoData> = ({ id, title, completed, datetime }) => {

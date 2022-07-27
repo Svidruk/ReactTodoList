@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { TodoData } from "../interfaces/TodoData";
+import { TodoData } from "../../interfaces/TodoData";
 
 const getInitialTodo = () => {
   const localTodoList = window.localStorage.getItem("todoList");

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { TodoData } from "../interfaces/TodoData";
 import { useDispatch } from "react-redux";
-import { toggleComplete, deleteTodo, pinTodo } from "../redux/TodoSlice";
+import { toggleComplete, deleteTodo, pinTodo } from "../redux/Slices/TodoSlice";
 import { ReactComponent as Pin } from "../assets/icons/Pin.svg";
 import { ReactComponent as FilledPin } from "../assets/icons/FilledPin.svg";
 import { ReactComponent as Check } from "../assets/icons/Check.svg";
@@ -23,7 +23,7 @@ const TodoItem: FC<TodoData> = ({ id, title, completed, pinned, datetime }) => {
   };
 
   return (
-    <li className='list-group-item bg-light'>
+    <li className='list-group-item'>
       <div className='d-flex justify-content-between'>
         <span className='d-flex align-items-center'>{title}</span>
         <p>

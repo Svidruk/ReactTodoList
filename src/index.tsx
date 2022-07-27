@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import "./scss/App.scss";
 import App from "./App";
-import ThemeSelector from "./components/ThemeSelector";
+import "./scss/App.scss"
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(

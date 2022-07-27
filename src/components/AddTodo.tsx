@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "../redux/TodoSlice";
+import { addTodo } from "../redux/Slices/TodoSlice";
 import Button from "react-bootstrap/Button";
 
 const AddTodo = () => {

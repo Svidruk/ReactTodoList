@@ -1,6 +1,5 @@
-import React from 'react';
 import '../scss/App.scss';
 
-const LightTheme: React.FC = () => (<></>);
+const LightTheme = () => <></>;
 
 export default LightTheme;

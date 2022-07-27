@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { CatData } from "../interfaces/CatData";
-import { fetchCatData } from "../api/CatApi";
+import { CatData } from "../../interfaces/CatData";
+import { fetchCatData } from "../../api/CatApi";
 
 export const loadCatData = createAsyncThunk("ip/fetchcat", fetchCatData);
 

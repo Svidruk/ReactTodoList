@@ -1,10 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
-import todoReducer from "./TodoSlice";
-import themeReducer from "./ThemeSlice";
-import dogReducer from "./dogSlice";
-import IpReducer from "./IpSlice";
-import catReducer from "./catSlice"
-import boredReducer from "./boredSlice";
+import todoReducer from "../Slices/TodoSlice";
+import themeReducer from "../Slices/ThemeSlice";
+import dogReducer from "../Slices/dogSlice";
+import IpReducer from "../Slices/IpSlice";
+import catReducer from "../Slices/catSlice"
+import boredReducer from "../Slices/boredSlice";
+import weatherReducer from "../Slices/weatherSlice";
 import thunk from "redux-thunk";
 
 export const store = configureStore({
@@ -15,6 +16,7 @@ export const store = configureStore({
     dog: dogReducer,
     cat: catReducer,
     bored: boredReducer,
+    weather: weatherReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });

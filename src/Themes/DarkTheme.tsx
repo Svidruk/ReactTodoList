@@ -1,6 +1,5 @@
-import React from 'react';
-import '../scss/dark-mode.scss';
+import "../scss/dark-mode.scss";
 
-const DarkTheme: React.FC = () => (<></>);
+const DarkTheme = () => <></>;
 
 export default DarkTheme;

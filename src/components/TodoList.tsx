@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
-import { RootState } from "../redux/store";
+import { RootState } from "../redux/store/store";
 import { TodoData } from "../interfaces/TodoData";
 
 const TodoList = () => {

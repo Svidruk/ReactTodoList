@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DogData } from "../interfaces/DogData";
-import { fetchDogData } from "../api/DogApi";
+import { DogData } from "../../interfaces/DogData";
+import { fetchDogData } from "../../api/DogApi";
 
 export const loadDogData = createAsyncThunk("dog/fetchDog", fetchDogData);
 

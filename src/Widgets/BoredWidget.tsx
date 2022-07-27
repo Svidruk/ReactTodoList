@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
-import { Card, ListGroup } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { BoredData } from "../interfaces/BoredData";
-import { loadBoredData } from "../redux/boredSlice";
-import { AppDispatch, RootState } from "../redux/store";
+import { loadBoredData } from "../redux/Slices/boredSlice";
+import { AppDispatch, RootState } from "../redux/store/store";
 
 const BoredWidget = () => {
   var shouldLog = useRef(true);
@@ -17,14 +17,14 @@ const BoredWidget = () => {
   }, [dispatch]);
 
   return (
-    <Card className='bg-info' style={{ width: "18rem", height: "15rem" }}>
+    <Card className='bg-info' style={{ width: "18rem", height: "18rem" }}>
       <Card.Body>
-        <Card.Title className='text-center'>{data.type}</Card.Title>
+        <Card.Title className='text-center'>{data.type.toLocaleUpperCase()}</Card.Title>
         <Card.Text className='text-center'>Activity: {data.activity}</Card.Text>
         <Card.Text>Participants: {data.participants}</Card.Text>
         <Card.Text>Price: {data.price}</Card.Text>
         <Card.Text>Accessibility Rate: {data.accessibility}</Card.Text>
-        <Card.Link>{data.link}</Card.Link>
+        {data.link !== "" && <Button href={data.link}>Useful Link</Button>}
       </Card.Body>
     </Card>
   );

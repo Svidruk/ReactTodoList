@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { DogApiUrl, IpApi, BoredApi, CatApi } from '../configs/environment';
+import { DogApiUrl, IpApi, BoredApi, CatApi, WeatherApi } from '../configs/environment';
 
 export const dogHttpClient = axios.create({
   baseURL: DogApiUrl,
@@ -18,6 +18,11 @@ export const CatHttpClient = axios.create({
 
 export const BoredHttpClient = axios.create({
   baseURL: BoredApi,
+  headers: { Accept: 'Application/Json' },
+});
+
+export const WeatherHttpClient = axios.create({
+  baseURL: WeatherApi,
   headers: { Accept: 'Application/Json' },
 });
 

@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../redux/store";
+import { RootState } from "../redux/store/store";
 import { useState } from "react";
 import { Button, Collapse } from "react-bootstrap";
 import { TodoData } from "../interfaces/TodoData";
