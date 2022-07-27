@@ -1,0 +1,26 @@
+//html[darkmode] {
+  $primary: #a4a366;
+  $secondary: #9ab6da;
+  $dark: #386086;
+  $light: #386086;
+  $success: #66ab57;
+  $info: #9ab6da;
+  $warning: #e49b1f;
+  $danger: #f44336;
+  $accent-1: #212529;
+  $accent-2: #414850;
+  $accent-3: #adb5bd;
+
+  $theme-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "dark": $dark,
+    "light": $light,
+    "success": $success,
+    "info": $info,
+    "warning": $warning,
+    "danger": $danger,
+  );
+
+  @import "~bootstrap/scss/bootstrap.scss";
+//}

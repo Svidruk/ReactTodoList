@@ -24,7 +24,7 @@ export const TodoSlice = createSlice({
         title: action.payload.title,
         completed: false,
         pinned: false,
-        datetime: new Date().toLocaleString(),
+        datetime: new Date().toLocaleDateString(),
       };
       state.todoList.push(newTodo);
 
@@ -48,7 +48,7 @@ export const TodoSlice = createSlice({
     },
 
     toggleComplete: (state, action) => {
-      const todoList = window.localStorage.getItem('todoList');
+      const todoList = window.localStorage.getItem("todoList");
       if (todoList) {
         const todoListArr = JSON.parse(todoList);
         todoListArr.forEach((todo: TodoData) => {
@@ -56,7 +56,7 @@ export const TodoSlice = createSlice({
             todo.completed = action.payload.completed;
           }
         });
-        window.localStorage.setItem('todoList', JSON.stringify(todoListArr));
+        window.localStorage.setItem("todoList", JSON.stringify(todoListArr));
         state.todoList = [...todoListArr];
       }
     },
@@ -79,7 +79,7 @@ export const TodoSlice = createSlice({
     },
 
     pinTodo: (state, action) => {
-      const todoList = window.localStorage.getItem('todoList');
+      const todoList = window.localStorage.getItem("todoList");
       if (todoList) {
         const todoListArr = JSON.parse(todoList);
         todoListArr.forEach((todo: TodoData) => {
@@ -87,10 +87,15 @@ export const TodoSlice = createSlice({
             todo.pinned = action.payload.pinned;
           }
         });
-        window.localStorage.setItem('todoList', JSON.stringify(todoListArr.sort((o1: TodoData) => {
-          return o1.pinned === true ? -1 : 1;
-        })));
-        state.todoList = [todoListArr];
+        window.localStorage.setItem(
+          "todoList",
+          JSON.stringify(
+            todoListArr.sort((o1: TodoData) => {
+              return o1.pinned === true ? -1 : 1;
+            })
+          )
+        );
+        state.todoList = [...todoListArr];
       }
     },
   },

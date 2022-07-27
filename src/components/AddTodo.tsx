@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/TodoSlice";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 
 const AddTodo = () => {
   const [value, setValue] = useState("");
@@ -16,9 +16,8 @@ const AddTodo = () => {
           title: value,
         })
       );
-    }
-    else{
-      alert('Field is empty')
+    } else {
+      alert("Field is empty");
     }
   };
 
@@ -30,7 +29,7 @@ const AddTodo = () => {
         placeholder='Add todo...'
         value={value}
         onChange={(event) => setValue(event.target.value)}></input>
-      <Button type='submit' variant="primary m-2">
+      <Button type='submit' variant='primary m-2'>
         Submit
       </Button>
     </form>
