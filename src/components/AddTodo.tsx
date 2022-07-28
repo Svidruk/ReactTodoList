@@ -9,13 +9,15 @@ const AddTodo = () => {
   const dispatch = useDispatch();
 
   const onSubmit = (event: React.SyntheticEvent) => {
-    if (value.length > 0) {
+    let trimmedValue = value.trim()
+    if (trimmedValue.length > 0) {
       event.preventDefault();
       dispatch(
         addTodo({
-          title: value,
+          title: trimmedValue,
         })
       );
+      setValue("");
     } else {
       alert("Field is empty");
     }

@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
 import { Card, ListGroup } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { WeatherData } from "./interfaces/WeatherData";
-import { loadIpData } from "./redux/Slices/IpSlice";
-import { AppDispatch, RootState } from "./redux/store/store";
+import { WeatherData } from "../interfaces/WeatherData";
+import { loadIpData } from "../redux/Slices/IpSlice";
+import { AppDispatch, RootState } from "../redux/store/store";
 
 const WeatherWidget = () => {
   var shouldLog = useRef(true);

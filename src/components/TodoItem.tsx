@@ -31,17 +31,17 @@ const TodoItem: FC<TodoData> = ({ id, title, completed, pinned, datetime }) => {
           <button
             onClick={handleCompleteClick}
             className='btn btn-success me-1'>
-            <Check></Check>
+            <Check/>
           </button>
           <button onClick={handleDeleteClick} className='btn btn-danger me-3'>
-            <Bucket></Bucket>
+            <Bucket/>
           </button>
           <button
             onClick={handlePinClick}
             className={`btn btn-outline-primary ${
               pinned && "btn btn-primary"
             }`}>
-            {pinned ? <FilledPin/> : <Pin/>}
+            {pinned ? <FilledPin /> : <Pin />}
           </button>
         </p>
       </div>

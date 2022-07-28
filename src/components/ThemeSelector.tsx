@@ -3,6 +3,8 @@ import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { AppDispatch, RootState } from "../redux/store/store";
 import { toggleTheme } from "../redux/Slices/ThemeSlice";
+/*import LightTheme from "../Themes/LightTheme";
+import DarkTheme from "../Themes/DarkTheme";*/
 
 const LightTheme = lazy(() => import("../Themes/LightTheme"));
 const DarkTheme = lazy(() => import("../Themes/DarkTheme"));
@@ -20,6 +22,7 @@ const ThemeSelector: FC<Props> = ({ children }) => {
   const toggle = () => {
     dispatch(toggleTheme({ theme }));
   };
+
   return (
     <>
       <div className='position-relative'>

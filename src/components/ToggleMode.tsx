@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleTheme } from "../redux/Slices/ThemeSlice";
@@ -9,7 +10,16 @@ const ToggleMode = () => {
     return state.theme;
   });
 
+  const [value, setValue] = useState(false);
+
+  useEffect(() => {
+    value
+      ? document.documentElement.setAttribute("darkMode", "")
+      : document.documentElement.removeAttribute("darkMode");
+  }, [value]);
+
   const toggle = () => {
+    setValue((v) => !v);
     dispatch(toggleTheme({ theme }));
   };
 
@@ -19,10 +29,10 @@ const ToggleMode = () => {
         <Form.Check
           type='switch'
           id='custom-switch'
-          label='dark/light'
+          label='dark mode'
           className='position-absolute top-0 end-0 translate-middle'
           checked={!theme.theme}
-          onClick={toggle}
+          onChange={toggle}
         />
       </Form>
     </div>
