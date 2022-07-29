@@ -23,7 +23,7 @@ const CatWidget = () => {
       <Card.Body>
         <Card.Title>Cat Fact</Card.Title>
         <Card.Text>{data.fact}</Card.Text>
-        <Button className="bottom" onClick={getNewfact}> get New Fact</Button>
+        <Button onClick={getNewfact}> get New Fact</Button>
       </Card.Body>
     </Card>
   );

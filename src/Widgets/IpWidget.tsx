@@ -17,14 +17,22 @@ const IpWidget = () => {
   }, [dispatch]);
 
   return (
-    <Card style={{ width: "18rem", height: "18rem" }}>
+    <Card className='bg-info' style={{ width: "18rem", height: "18rem" }}>
       <Card.Body>
-        <Card.Title className="text-center">Ip data</Card.Title>
-        <Card.Subtitle className="text-center">State: {data.country} </Card.Subtitle>
+        <Card.Title className='text-center'>Ip data</Card.Title>
+        <Card.Subtitle className='text-center'>
+          State: {data.country}{" "}
+        </Card.Subtitle>
         <ListGroup variant='flush'>
-          <ListGroup.Item>Region :  {data.region}</ListGroup.Item>
-          <ListGroup.Item>Region name:  {data.regionName}</ListGroup.Item>
-          <ListGroup.Item>City:  {data.city}</ListGroup.Item>
+          <ListGroup.Item className='bg-info text-white'>
+            Region : {data.region}
+          </ListGroup.Item>
+          <ListGroup.Item className='bg-info text-white'>
+            Region name: {data.regionName}
+          </ListGroup.Item>
+          <ListGroup.Item className='bg-info text-white'>
+            City: {data.city}
+          </ListGroup.Item>
         </ListGroup>
       </Card.Body>
     </Card>

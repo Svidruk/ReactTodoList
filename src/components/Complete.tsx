@@ -3,7 +3,7 @@ import { RootState } from "../redux/store/store";
 import { useState } from "react";
 import { Button, Collapse } from "react-bootstrap";
 import { TodoData } from "../interfaces/TodoData";
-import CompleteItem from "./CompleteItem";
+import TodoItem from "./TodoItem";
 import { ReactComponent as RightArrow } from "../assets/icons/RightArrow.svg";
 import { ReactComponent as DownArrow } from "../assets/icons/DownArrow.svg";
 
@@ -28,7 +28,7 @@ const TotalCompleteItems = () => {
         <div className='mt-2 mb-5' id='example-collapse-text'>
           <ul className='list-group'>
             {todos.map((todo: TodoData) => (
-              <CompleteItem
+              <TodoItem
                 key={todo.id}
                 id={todo.id}
                 title={todo.title}

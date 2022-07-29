@@ -17,11 +17,14 @@ const DogWidget = () => {
   }, [dispatch]);
 
   return (
-    <Card style={{ width: "18rem", height: "18rem" }}>
+    <Card
+      className='justify-content-center'
+      style={{ width: "18rem", height: "18rem" }}>
       <Card.Img
-        style={{ width: "18rem", height: "17.5rem" }}
+        style={{ width: "17.3rem", height: "17.5rem" }}
         variant='top'
         src={data.message}
+        className='rounded ms-1'
       />
     </Card>
   );

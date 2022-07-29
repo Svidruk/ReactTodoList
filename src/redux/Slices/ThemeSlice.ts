@@ -11,11 +11,11 @@ const getInitialTodo = () => {
 };
 
 interface Theme {
-  theme: boolean;
+  darkTheme: boolean;
 }
 
 const initialValue: Theme = {
-  theme: getInitialTodo(),
+  darkTheme: getInitialTodo(),
 };
 
 export const ThemeSlice = createSlice({
@@ -26,9 +26,9 @@ export const ThemeSlice = createSlice({
       const themeValue = window.localStorage.getItem("theme");
       if (themeValue !== null) {
         var theme = JSON.parse(themeValue);
-        theme = !action.payload.theme.theme;
+        theme = !action.payload.theme.darkTheme;
         window.localStorage.setItem("theme", JSON.stringify(theme));
-        state.theme = theme;
+        state.darkTheme = theme;
       }
     },
   },

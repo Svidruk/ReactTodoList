@@ -1,8 +1,7 @@
 import { CatHttpClient } from "../helper/httpClients";
-import { CatApi } from "../configs/environment";
 import { CatData } from "../interfaces/CatData";
 
 export const fetchCatData = (): Promise<CatData> =>
-  CatHttpClient.get(`${CatApi}`).then((resp) => {
+  CatHttpClient.get(`${process.env.REACT_APP_CAT_API}`).then((resp) => {
     return resp.data;
   });

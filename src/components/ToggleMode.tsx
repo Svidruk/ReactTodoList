@@ -10,7 +10,7 @@ const ToggleMode = () => {
     return state.theme;
   });
 
-  const [value, setValue] = useState(false);
+  const [value, setValue] = useState(theme.darkTheme);
 
   useEffect(() => {
     value
@@ -19,23 +19,21 @@ const ToggleMode = () => {
   }, [value]);
 
   const toggle = () => {
-    setValue((v) => !v);
+    setValue((value) => !value);
     dispatch(toggleTheme({ theme }));
   };
 
   return (
-    <div className='position-relative'>
-      <Form>
-        <Form.Check
-          type='switch'
-          id='custom-switch'
-          label='dark mode'
-          className='position-absolute top-0 end-0 translate-middle'
-          checked={!theme.theme}
-          onChange={toggle}
-        />
-      </Form>
-    </div>
+    <Form>
+      <Form.Check
+        type='switch'
+        id='custom-switch'
+        label='dark mode'
+        className='position-absolute mt-5 top-0 end-0 translate-middle'
+        checked={theme.darkTheme}
+        onChange={toggle}
+      />
+    </Form>
   );
 };
 

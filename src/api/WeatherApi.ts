@@ -1,8 +1,7 @@
 import { WeatherHttpClient } from "../helper/httpClients";
-import { WeatherApi } from "../configs/environment";
 import { WeatherData } from "../interfaces/WeatherData";
 
 export const fetchWeatherData = (): Promise<WeatherData> =>
-  WeatherHttpClient.get(`${WeatherApi}`).then((resp) => {
+  WeatherHttpClient.get(`${process.env.REACT_APP_WEATHER_API}`).then((resp) => {
     return resp.data;
   });

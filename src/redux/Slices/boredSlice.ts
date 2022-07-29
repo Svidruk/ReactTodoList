@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { BoredData } from "../../interfaces/BoredData";
 import { fetchBoredData } from "../../api/BoredApi";
 
-export const loadBoredData = createAsyncThunk("dog/fetchBored", fetchBoredData);
+export const loadBoredData = createAsyncThunk("bored/fetchBored", fetchBoredData);
 
 const initialState: BoredData = {
   status: "",

@@ -7,32 +7,36 @@ import DogWidget from "../../Widgets/DogWidget";
 import IpWidget from "../../Widgets/IpWidget";
 import CatWidget from "../../Widgets/CatWidget";
 import BoredWidget from "../../Widgets/BoredWidget";
+import WeatherWidget from "../../Widgets/WeatherWidget";
 
 export const Home = () => {
   return (
     <>
       <div className='container  p-4 mt-5'>
+        <ToggleMode />
         <div className='row'>
           <div className='col-sm'>
-            <ToggleMode />
             <AddTodo />
             <TodoList />
             <TotalCompleteItems />
           </div>
           <div className='col'>
+            <div className='row mb-4 ms-0'>
+              <WeatherWidget />
+            </div>
             <div className='row mb-4'>
-              <div className='col-sm'>
+              <div className='col'>
                 <DogWidget />
               </div>
-              <div className='col-sm'>
+              <div className='col'>
                 <IpWidget />
               </div>
             </div>
             <div className='row'>
-              <div className='col-sm'>
+              <div className='col'>
                 <BoredWidget />
               </div>
-              <div className='col-sm'>
+              <div className='col'>
                 <CatWidget />
               </div>
             </div>

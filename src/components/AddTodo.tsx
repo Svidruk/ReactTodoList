@@ -4,27 +4,29 @@ import { addTodo } from "../redux/Slices/TodoSlice";
 import Button from "react-bootstrap/Button";
 
 const AddTodo = () => {
-  const [value, setValue] = useState("");
+  let [value, setValue] = useState("");
 
   const dispatch = useDispatch();
 
   const onSubmit = (event: React.SyntheticEvent) => {
-    let trimmedValue = value.trim()
-    if (trimmedValue.length > 0) {
+    value = value.trim();
+    if (value.length === 0) {
+      alert("Field is empty");
+    } else if (value.length > 40) {
+      alert("expression is too long");
+    } else {
       event.preventDefault();
       dispatch(
         addTodo({
-          title: trimmedValue,
+          title: value,
         })
       );
       setValue("");
-    } else {
-      alert("Field is empty");
     }
   };
 
   return (
-    <form onSubmit={onSubmit} className='flex form-inline mt-3 mb-3'>
+    <form onSubmit={onSubmit} className='flex form-inline mb-3'>
       <input
         type='text'
         className='form-control mr-sm-2'
