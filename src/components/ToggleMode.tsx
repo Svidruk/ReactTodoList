@@ -29,7 +29,7 @@ const ToggleMode = () => {
         type='switch'
         id='custom-switch'
         label='dark mode'
-        className='position-absolute mt-5 top-0 end-0 translate-middle'
+        className="position-absolute mt-4 top-0"
         checked={theme.darkTheme}
         onChange={toggle}
       />

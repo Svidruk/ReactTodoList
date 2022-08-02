@@ -19,6 +19,8 @@ const WeatherWidget = () => {
     }
   }, [dispatch]);
 
+  //const dateTime = new Date(data.dt * 1000);
+
   return (
     <Card style={{ width: "38.2rem", height: "11rem" }}>
       <Card.Body>
@@ -36,6 +38,7 @@ const WeatherWidget = () => {
             <Card.Text className='text-dark'>
               {data.weather[0].description}
             </Card.Text>
+            {/*<Card.Text className='text-dark'>{dateTime.getHours()}</Card.Text>*/}
           </div>
           <div className='col text-dark'>
             <Card.Text>Wind m/s: {data.wind.speed}</Card.Text>

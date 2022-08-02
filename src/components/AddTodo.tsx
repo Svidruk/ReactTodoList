@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addTodo } from "../redux/Slices/TodoSlice";
 import Button from "react-bootstrap/Button";
+import { RootState } from "../redux/store/store";
 
 const AddTodo = () => {
   let [value, setValue] = useState("");
@@ -25,6 +26,10 @@ const AddTodo = () => {
     }
   };
 
+  const AuthState = useSelector((state: RootState) => {
+    return state.auth;
+  });
+
   return (
     <form onSubmit={onSubmit} className='flex form-inline mb-3'>
       <input
@@ -33,7 +38,7 @@ const AddTodo = () => {
         placeholder='Add todo...'
         value={value}
         onChange={(event) => setValue(event.target.value)}></input>
-      <Button type='submit' variant='primary m-2'>
+      <Button disabled={!AuthState.isAuth} type='submit' variant='primary m-2'>
         Submit
       </Button>
     </form>

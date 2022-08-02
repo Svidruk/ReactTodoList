@@ -4,8 +4,12 @@ import { RootState } from "../redux/store/store";
 import { TodoData } from "../interfaces/TodoData";
 
 const TodoList = () => {
-  const todos = useSelector((state: RootState) =>
-    state.todos.todoList.filter((todo: TodoData) => todo.completed === false)
+  const AuthState = useSelector((state: RootState) => {
+    return state.auth;
+  });
+  
+  const todos = useSelector((state: RootState) => 
+      state.todos.todoList.filter((todo: TodoData) => todo.completed === false && AuthState.isAuth)
   );
 
   return (

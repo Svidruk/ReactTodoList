@@ -3,9 +3,10 @@ import todoReducer from "../Slices/TodoSlice";
 import themeReducer from "../Slices/ThemeSlice";
 import dogReducer from "../Slices/dogSlice";
 import IpReducer from "../Slices/IpSlice";
-import catReducer from "../Slices/catSlice"
+import catReducer from "../Slices/catSlice";
 import boredReducer from "../Slices/boredSlice";
 import weatherReducer from "../Slices/weatherSlice";
+import authReducer from "../Slices/authReducer";
 import thunk from "redux-thunk";
 
 export const store = configureStore({
@@ -17,6 +18,7 @@ export const store = configureStore({
     cat: catReducer,
     bored: boredReducer,
     weather: weatherReducer,
+    auth: authReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(thunk),
 });

@@ -9,6 +9,9 @@ const IpWidget = () => {
   var shouldLog = useRef(true);
   const dispatch = useDispatch<AppDispatch>();
   const data = useSelector<RootState, IpData>((state) => state.ip.data);
+  const AuthState = useSelector((state: RootState) => {
+    return state.auth;
+  });
   useEffect(() => {
     if (shouldLog.current) {
       shouldLog.current = false;

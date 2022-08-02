@@ -10,8 +10,14 @@ import { ReactComponent as DownArrow } from "../assets/icons/DownArrow.svg";
 const TotalCompleteItems = () => {
   const [open, setOpen] = useState(false);
 
+  const AuthState = useSelector((state: RootState) => {
+    return state.auth;
+  });
+
   const todos = useSelector((state: RootState) =>
-    state.todos.todoList.filter((todo: TodoData) => todo.completed === true)
+    state.todos.todoList.filter(
+      (todo: TodoData) => todo.completed === true && AuthState.isAuth
+    )
   );
 
   return (
