@@ -33,7 +33,7 @@ var IpSlice = __webpack_require__(581);
 // EXTERNAL MODULE: ./src/redux/Slices/catSlice.ts + 1 modules
 var catSlice = __webpack_require__(669);
 // EXTERNAL MODULE: ./src/redux/Slices/boredSlice.ts + 1 modules
-var boredSlice = __webpack_require__(746);
+var boredSlice = __webpack_require__(105);
 // EXTERNAL MODULE: ./src/redux/Slices/weatherSlice.ts + 1 modules
 var weatherSlice = __webpack_require__(653);
 // EXTERNAL MODULE: ./src/redux/Slices/authReducer.ts
