@@ -2,12 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 import { TodoData } from "../../interfaces/TodoData";
 
 const getInitialTodo = () => {
-  const localTodoList = window.localStorage.getItem("todoList");
-  if (localTodoList) {
-    return JSON.parse(localTodoList);
+  if (typeof window !== "undefined") {
+    const localTodoList = localStorage.getItem("todoList");
+
+    if (localTodoList) {
+      return JSON.parse(localTodoList);
+    }
+    window.localStorage.setItem("todoList", "");
+    return [];
   }
-  window.localStorage.setItem("todoList", "");
-  return [];
 };
 
 const initialValue = {

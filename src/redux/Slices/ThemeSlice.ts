@@ -1,20 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const getInitialTodo = () => {
-  const themeValue = window.localStorage.getItem("theme");
-  if (themeValue !== null) {
-    const theme: boolean = JSON.parse(themeValue);
-    return theme;
+  if (typeof window !== "undefined") {
+    const themeValue = window.localStorage.getItem("theme");
+    if (themeValue !== null) {
+      const theme: boolean = JSON.parse(themeValue);
+      return theme;
+    }
+    localStorage.setItem("theme", JSON.stringify(false));
+    return false;
   }
-  localStorage.setItem("theme", JSON.stringify(false));
-  return false;
 };
 
-interface Theme {
-  darkTheme: boolean;
-}
-
-const initialValue: Theme = {
+const initialValue = {
   darkTheme: getInitialTodo(),
 };
 

@@ -1,0 +1,46 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+html[darkMode] {
+  .dark {
+    /* redefine theme colors for dark theme */
+    $primary: #a4a366;
+    $secondary: #9ab6da;
+    $dark: #386086;
+    $light: #002a512a;
+    $success: #66ab57;
+    $info: #708097;
+    $warning: #e49b1f;
+    $danger: #f44336;
+
+    $theme-colors: (
+      "primary": $primary,
+      "secondary": $secondary,
+      "dark": $dark,
+      "light": $light,
+      "success": $success,
+      "info": $info,
+      "warning": $warning,
+      "danger": $danger,
+    );
+
+    /* redefine theme color variables */
+    @each $color, $value in $theme-colors {
+      --#{$variable-prefix}#{$color}: #{$value};
+    }
+
+    /* redefine theme color rgb vars (used for bg- colors) */
+    $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+    @each $color, $value in $theme-colors-rgb {
+      --#{$variable-prefix}#{$color}-rgb: #{$value};
+    }
+
+    $body-color: #eeeeee;
+    $body-bg: #263c5c;
+
+    --#{$variable-prefix}body-color: #{$body-color};
+    --#{$variable-prefix}body-bg: #{$body-bg};
+    @import "~bootstrap/scss/bootstrap.scss";
+  }
+}

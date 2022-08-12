@@ -2,13 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 import { AuthData } from "../../interfaces/authData";
 
 const getInitialTodo = () => {
-  const isAuthValue = window.localStorage.getItem("isAuth");
-  if (isAuthValue !== null) {
-    const authValues: AuthData = JSON.parse(isAuthValue);
-    return authValues;
-  }
   const defaultValues: AuthData = { isAuth: false, username: "" };
-  localStorage.setItem("isAuth", JSON.stringify(defaultValues));
+  if (typeof window !== "undefined") {
+    const isAuthValue = window.localStorage.getItem("isAuth");
+    if (isAuthValue !== null) {
+      const authValues: AuthData = JSON.parse(isAuthValue);
+      return authValues;
+    }
+    localStorage.setItem("isAuth", JSON.stringify(defaultValues));
+  }
   return defaultValues;
 };
 
